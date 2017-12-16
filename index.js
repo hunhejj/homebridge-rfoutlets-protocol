@@ -31,15 +31,16 @@ function RFOutletAccessory(log, config) {
         this.pulselength = 189; //Default to a pulse length of 189
     }
 
-    if (config["pin"]) {
-        this.pin = config["pin"];
+    if (config["protocol"]) {
+        this.protocol = config["protocol"];
     } else {
-        this.pin = 0; //Default to GPIO pin 0
+        this.protocol = 1; //Default protocol is 1
     }
 
-    cmdBase = "sudo " + //the codesend executable requires root
+    cmdStart = "sudo " + //the codesend executable requires root
         __dirname + //module directory
-        "/codesend -p " + this.pin + " -l " + this.pulselength + " ";
+       "/codesend ";
+    cmdEnd = " " +  this.protocol + " " + this.pulselength;
 }
 
 RFOutletAccessory.prototype = {
@@ -48,14 +49,14 @@ RFOutletAccessory.prototype = {
         var cmd;
 
         if (powerOn) {
-            cmd = cmdBase + this.rf_on;
+            cmd = cmdStart + this.rf_on + cmdEnd;
             state = "on";
         } else {
-            cmd = cmdBase + this.rf_off;
+            cmd = cmdStart + this.rf_off + cmdEnd;
             state = "off";
         }
 
-        this.log("Turning " + this.name + " " + state);
+        this.log("Turning " + this.name + " " + state + " (" + cmd + ")");
 
         limiter.removeTokens(1, function() {
             exec(cmd, function(error, stdout, stderr) {

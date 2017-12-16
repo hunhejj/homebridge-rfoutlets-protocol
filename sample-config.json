@@ -11,15 +11,15 @@
     "platforms": [],
 
     "accessories": [{
-        "accessory": "RFOutlet",
-        "name": "Window Fan",
-        "type": "Fan",
-        "manufacturer": "Lasko",
-        "model": "Weather Shield Box Fan",
-        "serial": " ",
-        "rf_on": 4480259,
-        "rf_off": 4480268,
-        "pulselength": "",
-        "pin": ""
+		"accessory": "RFOutlet",
+		"name": "Computer",
+		"type": "Switch",
+		"manufacturer": "Silvercrest (brennenstuhl)",
+		"model": "RCR DP3 3711-A",
+		"serial": "dd4a931513aa",
+		"rf_on": 11742167,
+		"rf_off": 11559223,
+		"pulselength": "355",
+		"protocol": "4"
     }]
 }
