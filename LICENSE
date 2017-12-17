@@ -1,7 +1,7 @@
 ---
 
-homebridge-rfoutlets is based on homebridge-cmd
-homebridge-cmd: https://github.com/senyoltw/homebridge-cmd
+homebridge-rfoutlets-protocol is based on homebridge-rfoutlets
+homebridge-rfoutlets: https://github.com/wstameris/homebridge-rfoutlets
 Distributed with modifications under the terms of the Apache License
 
 ---

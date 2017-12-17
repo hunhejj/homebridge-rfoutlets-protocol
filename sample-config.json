@@ -12,8 +12,8 @@
 
     "accessories": [{
 		"accessory": "RFOutlet",
-		"name": "Computer",
-		"type": "Switch",
+		"name": "Desk Light",
+		"type": "Light",
 		"manufacturer": "Silvercrest (brennenstuhl)",
 		"model": "RCR DP3 3711-A",
 		"serial": "dd4a931513aa",

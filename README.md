@@ -13,7 +13,7 @@ Supports *lights*, *switches*, and *fans*
 - Install homebridge  
 `sudo npm install -g homebridge`
 
-- Install homebridge-rfoutlets  
+- Install homebridge-rfoutlets-protocol
 `sudo npm install -g homebridge-rfoutlets-protocol`
 
 - Update your homebridge configuration (see `sample-config.json`)
