@@ -1,8 +1,10 @@
-# homebridge-rfoutlets
+# homebridge-rfoutlets-protocol
 
 Homebridge plugin purpose-built for controlling 433MHz radio frequency outlets which can be purchased inexpensively. (i.e. [these](https://www.amazon.com/Etekcity-Wireless-Electrical-Household-Appliances/dp/B00DQELHBS "Etekcity Wireless Outlets")). Homebridge maintains state information, so you can always know if you left that lamp on.
 
-Tested on a Raspberry Pi 2 - Model B running Raspbian (Debian) and Node.js v6.9.0. This should work on most Raspberry Pi models, however YMMV
+This is a forg from homebridge-rfoutlets as it didn't feature different protocols. How ever there is no support for different GPIO pins anymore. I needed protocol 4 to get my [brennenstuhl RC-CE1-4001](https://www.brennenstuhl.com/en-DE/Comfort-Line-Remote-Control-Set-RC-CE1-4001)(same as LIDL Silvercrest RCR DP3 3711-A) working.
+
+Tested on a Raspberry Zero W Raspbian (Debian) and Node.js v8.9.1. This should work on most Raspberry Pi models, however YMMV
 
 Supports *lights*, *switches*, and *fans*
 
@@ -12,14 +14,17 @@ Supports *lights*, *switches*, and *fans*
 `sudo npm install -g homebridge`
 
 - Install homebridge-rfoutlets  
-`sudo npm install -g homebridge-rfoutlets`
+`sudo npm install -g homebridge-rfoutlets-protocol`
 
-- Update your homebridge configuration
+- Update your homebridge configuration (see `sample-config.json`)
 
 ## Notes
 
-- The user which homebridge is run from must be on the list of *sudoers* as the `codesend` executable requires root privileges
+- The user which homebridge is run from does **not** have to be a *sudoer* as like in the original homebridge-rfoutlets
+- The 433MHz transmitter must be connected to GPIO pin 0 (physical 11)
 - A great guide on how to record RF signals and set up your Pi to transmit can be found [here](https://www.samkear.com/hardware/control-power-outlets-wirelessly-raspberry-pi "Pi 433Mhz Transmitter Guide"). Note: the web portion of the guide is not required
+- A better but german guide is [here](https://tutorials-raspberrypi.de/raspberry-pi-funksteckdosen-433-mhz-steuern/)
+- A more specific information on how to record RF signals can be found [here](https://github.com/sui77/rc-switch/issues/103). This was the most valuable hit to get my outlets working as they use protocol 4 and 5 but only 4 is important
 
 ## Configuration
 
@@ -31,6 +36,7 @@ Supports *lights*, *switches*, and *fans*
 - `rf_on`: RF signal to turn the outlet on (**required**)
 - `rf_off`: RF signal to turn the outlet off (**required**)
 - `pulselength`: RF transmission pulse length (*optional*, defaults to 189)
-- `pin`: GPIO pin of the 433MHz transmitter (*optional*, defaults to 0)
+- `protocol`: protocol for the transmitter (*optional*, defaults to 1)
+- `pin`: can **NOT** be configured as in homebridge-rfoutlets, it's always 0
 
 See `sample-config.json`

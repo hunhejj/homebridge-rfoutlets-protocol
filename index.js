@@ -6,7 +6,7 @@ module.exports = function(homebridge) {
     Service = homebridge.hap.Service;
     Characteristic = homebridge.hap.Characteristic;
     limiter = new RateLimiter(1, 200); //limit requests to one per 200ms
-    homebridge.registerAccessory("homebridge-rfoutlets",
+    homebridge.registerAccessory("homebridge-rfoutlets-protocol",
         "RFOutlet",
         RFOutletAccessory);
 }
@@ -37,8 +37,7 @@ function RFOutletAccessory(log, config) {
         this.protocol = 1; //Default protocol is 1
     }
 
-    cmdStart = "sudo " + //the codesend executable requires root
-        __dirname + //module directory
+    cmdStart = __dirname + //module directory
        "/codesend ";
     cmdEnd = " " +  this.protocol + " " + this.pulselength;
 }
