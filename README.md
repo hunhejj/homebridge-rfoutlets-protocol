@@ -25,6 +25,7 @@ Supports *lights*, *switches*, and *fans*
 - A great guide on how to record RF signals and set up your Pi to transmit can be found [here](https://www.samkear.com/hardware/control-power-outlets-wirelessly-raspberry-pi "Pi 433Mhz Transmitter Guide"). Note: the web portion of the guide is not required
 - A better but german guide is [here](https://tutorials-raspberrypi.de/raspberry-pi-funksteckdosen-433-mhz-steuern/)
 - A more specific information on how to record RF signals can be found [here](https://github.com/sui77/rc-switch/issues/103). This was the most valuable hit to get my outlets working as they use protocol 4 and 5 but only 4 is important
+- My german guide how to record the codes for Silvercrest/brennenstuhl outlets can be found [here](https://forum.pimatic.org/topic/3337/433-mhz-funksteckdosen-lidl-silvercrest-rcr-dp3-3711-a-brennenstuhl-mit-homeduino/19)
 
 ## Configuration
 
