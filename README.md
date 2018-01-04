@@ -6,7 +6,7 @@ This is a forg from homebridge-rfoutlets as it didn't feature different protocol
 
 Tested on a Raspberry Zero W (armv6) Raspbian (Debian) and Node.js v8.9.1. This should work on most Raspberry Pi models, however YMMV
 
-Supports *lights*, *switches*, "outlets" and *fans*
+Supports *lights*, *switches*, *outlets* and *fans*
 
 ## Installation
 
