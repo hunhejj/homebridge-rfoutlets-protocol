@@ -1,4 +1,4 @@
-var Service, Characteristic, limiter, cmdBase;
+var Service, Characteristic, limiter;
 var exec = require("child_process").exec,
     RateLimiter = require('limiter').RateLimiter;
 
@@ -36,10 +36,6 @@ function RFOutletAccessory(log, config) {
     } else {
         this.protocol = 1; //Default protocol is 1
     }
-
-    cmdStart = __dirname + //module directory
-       "/codesend ";
-    cmdEnd = " " +  this.protocol + " " + this.pulselength;
 }
 
 RFOutletAccessory.prototype = {
@@ -48,10 +44,10 @@ RFOutletAccessory.prototype = {
         var cmd;
 
         if (powerOn) {
-            cmd = cmdStart + this.rf_on + cmdEnd;
+            cmd = __dirname + "/codesend " + this.rf_on + " " +  this.protocol + " " + this.pulselength;
             state = "on";
         } else {
-            cmd = cmdStart + this.rf_off + cmdEnd;
+            cmd = __dirname + "/codesend " + this.rf_off + " " +  this.protocol + " " + this.pulselength;
             state = "off";
         }
 
@@ -92,6 +88,14 @@ RFOutletAccessory.prototype = {
             case "Fan":
                 this.outletService = new Service.Fan(this.name);
                 break;
+            case "Outlet":
+                this.outletService = new Service.Outlet(this.name);
+				break;
+	        /* case "Speaker":
+	            this.outletService = new Service.Speaker(this.name);
+	            break;
+	        //still no support for Speakers in iOS 11.2.1 (Jan18), may be shipped with HomePods
+	        */
             default:
                 this.outletService = new Service.Switch(this.name);
         }
