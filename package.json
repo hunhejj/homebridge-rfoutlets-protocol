@@ -1,10 +1,19 @@
 {
     "name": "homebridge-rfoutlets-protocol",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "RF (433MHz) outlet remote control plugin for homebridge which uses different protocols: https://github.com/thomas22122212/homebridge-rfoutlets-protocol",
     "license": "(MIT OR ISC)",
     "keywords": [
-        "homebridge-plugin", "433", "433MHz", "Raspberry", "Pi", "rf", "rc-switch", "brennenstuhl", "silvercrest","outlets"
+        "homebridge-plugin",
+        "433",
+        "433MHz",
+        "Raspberry",
+        "Pi",
+        "rf",
+        "rc-switch",
+        "brennenstuhl",
+        "silvercrest",
+        "outlets"
     ],
     "engines": {
         "node": ">=0.12.0",
