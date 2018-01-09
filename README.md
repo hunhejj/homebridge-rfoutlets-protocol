@@ -4,7 +4,9 @@ Homebridge plugin purpose-built for controlling 433MHz radio frequency outlets w
 
 This is a forg from homebridge-rfoutlets as it didn't feature different protocols. How ever there is no support for different GPIO pins anymore. I needed protocol 4 to get my [brennenstuhl RC-CE1-4001](https://www.brennenstuhl.com/en-DE/Comfort-Line-Remote-Control-Set-RC-CE1-4001)(same as LIDL Silvercrest RCR DP3 3711-A) working.
 
-Tested on a Raspberry Zero W (armv6) Raspbian (Debian) and Node.js v8.9.1. This should work on most Raspberry Pi models, however YMMV
+Homebridge-rfoutlets-protocol uses a compiled version of `codesend` from the [433Utils/RPi_utils](https://github.com/ninjablocks/433Utils) (by ninjablocks) which is based on [rc-switch](https://github.com/sui77/rc-switch/) (by sui77).
+
+Tested on a Raspberry Zero W (armv6) Raspbian (Debian) Stretch and Node.js v8.9.1. This should work on most Raspberry Pi models, however YMMV. Possibly you need to compile `codesend` for your CPU architecture (using `make` and the [433Utils/RPi_utils](https://github.com/ninjablocks/433Utils)) and replace `.../node/lib/node_modules/homebridge-rfoutlets-protocol/codesend` with your self compiled version.
 
 Supports *lights*, *switches*, *outlets* and *fans*
 
