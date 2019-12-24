@@ -36,6 +36,8 @@ function RFOutletAccessory(log, config) {
     } else {
         this.protocol = 1; //Default protocol is 1
     }
+
+    this.times = config["times"] || 1; // Default is 1
 }
 
 RFOutletAccessory.prototype = {
@@ -54,13 +56,22 @@ RFOutletAccessory.prototype = {
         this.log("Turning " + this.name + " " + state + " (" + cmd + ")");
 
         limiter.removeTokens(1, function() {
-            exec(cmd, function(error, stdout, stderr) {
-                if (error) {
-                    console.log(error);
-                }
+            this.executeCmd(cmd, this.times, callback);
+        }.bind(this));
+    },
+
+    executeCmd: function(cmd, times, callback){
+        exec(cmd, function(error, stdout, stderr) {
+            if (error) {
+                console.error(error);
+            }
+            if (times > 1){
+                this.executeCmd(cmd, times - 1, callback);
+            }
+            else {
                 callback();
-            })
-        });
+            }
+        }.bind(this))
     },
 
     identify: function(callback) {

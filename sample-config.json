@@ -20,6 +20,7 @@
 		"rf_on": 11742167,
 		"rf_off": 11559223,
 		"pulselength": "355",
-		"protocol": "4"
+		"protocol": "4",
+      "times": 3
     }]
 }

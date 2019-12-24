@@ -40,6 +40,7 @@ Supports *lights*, *switches*, *outlets* and *fans*
 - `rf_off`: RF signal to turn the outlet off (**required**)
 - `pulselength`: RF transmission pulse length (*optional*, defaults to 189)
 - `protocol`: protocol for the transmitter (*optional*, defaults to 1)
+- `times`: number of times the code should be sent (*optional*, defaults to 1)
 - `pin`: can **NOT** be configured as in homebridge-rfoutlets, it's always 0
 
 See `sample-config.json`
